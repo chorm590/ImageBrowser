@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.yyf.imagebrowser.ImageShowActivity" >
+
+    <item
+        android:id="@+id/menuItemMultiSelect"
+        android:orderInCategory="100"
+        android:title="批量选择"
+        app:showAsAction="never"/>
+    
+    <item 
+        android:id="@+id/menuItemDel"
+        android:orderInCategory="100"
+        android:title="删除"
+        android:showAsAction="never"/>
+    
+    <item 
+        android:id="@+id/menuItemStar"
+        android:orderInCategory="100"
+        android:title="按星级筛选"
+        android:showAsAction="never"/>
+
+</menu>

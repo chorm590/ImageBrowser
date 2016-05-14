@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center" >
+    
+    <ImageView
+        android:id="@+id/ivUseToShowImg"
+        android:padding="10dp"
+        android:scaleType="fitXY"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/photo_frame_single"
+        android:contentDescription="@string/hello_world" />
+    
+    <!-- 
+    	这个是自定义的星级指示器。
+    	提供了addOneLevel与minOneLevel方法来修改指定图片的星级。 
+    -->
+    <com.yyf.imagebrowser.view.StarIndicator
+        android:id="@+id/starIndicator"
+        android:layout_width="75dp"
+        android:layout_height="12dp"
+        android:layout_marginBottom="11dp"
+        android:paddingTop="1dp"
+        android:paddingBottom="1dp"
+        android:background="@drawable/star_indicator_bg_shape"
+        android:layout_gravity="bottom|center_horizontal" />
+    
+    <CheckBox 
+        android:id="@+id/cbImgShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:visibility="invisible"
+        android:button="@drawable/selector_checkbox"/>
+
+</FrameLayout>

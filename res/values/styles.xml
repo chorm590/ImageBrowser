@@ -1,0 +1,8 @@
+<resources>
+
+    <!-- 全局Activity主题样式，无ActionBar栏样式。 -->
+    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        
+    </style>
+    
+</resources>

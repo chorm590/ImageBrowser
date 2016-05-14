@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="starLevel">
+        <item >ALL</item>
+        <item >无级别</item>
+        <item >一星</item>
+        <item >二星</item>
+        <item >三星</item>
+        <item >四星</item>
+        <item >五星</item>
+    </string-array>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <ImageView 
+        android:id="@+id/ivImgShowFL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="matrix"
+        android:contentDescription="@string/hello_world"/>
+
+    <ProgressBar
+        android:id="@+id/pbImgShowFL"
+        style="@android:style/Widget.ProgressBar.Inverse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_gravity="center" />
+    
+    <com.yyf.imagebrowser.view.StarIndicator
+        android:id="@+id/starIndicatorImgShow"
+        android:layout_width="150dp"
+        android:layout_height="27dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/star_indicator_bg_shape"
+        android:layout_gravity="top|center_horizontal" />
+
+</FrameLayout>

@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.yyf.imagebrowser.MainActivity" >
+
+    <item
+        android:id="@+id/sortByFolder"
+        android:title="按文件夹排序"
+        app:showAsAction="never"/>
+    
+    <item
+        android:id="@+id/sortByTimeLine"
+        android:title="按时间线排序"
+        app:showAsAction="never"/>
+    
+    <item
+        android:id="@+id/sortByStarUp"
+        android:title="按星级升序"
+        app:showAsAction="never"/>
+    
+    <item
+        android:id="@+id/sortByStarDown"
+        android:title="按星级降序"
+        app:showAsAction="never"/>
+
+</menu>

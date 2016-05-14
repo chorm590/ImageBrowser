@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llSelfActionbar"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@android:color/holo_orange_light"
+    android:orientation="horizontal" >
+    
+    <ImageView 
+        android:id="@+id/ivSelfActionbarBack"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/hello_world"
+        android:gravity="center"
+        android:src="@drawable/selector_icon_back"
+        android:layout_weight="1"/>
+    
+    <TextView 
+        android:id="@+id/tvSelfActionbarTitle"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:singleLine="true"
+        android:ellipsize="middle"
+        android:layout_weight="6"/>
+    
+    <ImageView 
+        android:id="@+id/ivSelfActionbarMenu"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/hello_world"
+        android:gravity="center"
+        android:src="@drawable/selector_icon_menu"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
