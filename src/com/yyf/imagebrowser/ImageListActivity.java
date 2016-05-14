@@ -22,6 +22,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.Spinner;
@@ -133,19 +134,20 @@ public class ImageListActivity extends BaseActivity {
 		AlertDialog alertDialog = null;
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		
-		builder.setTitle("请选择需要筛选显示的星级级别：");
+		builder.setTitle("选择星级：");
 		//设置该对话框的内容为一个下拉框。
 //		builder.setView(R.layout.classfy_star_spinner);
 		View view = LayoutInflater.from(this).inflate(R.layout.classfy_star_spinner, null);
 		builder.setView(view);
 		final Spinner spinner = (Spinner) view.findViewById(R.id.spinnerStarClassfy);
+		final CheckBox cb = (CheckBox) view.findViewById(R.id.cbIncludeAbove);
 		// 设置确认按钮。。
 		builder.setPositiveButton("确认", new OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// 跳转到处理按星级筛选显示图片的方法中。
-				showSpecifyLevel((String)spinner.getSelectedItem());
+				showSpecifyLevel((String)spinner.getSelectedItem(), cb.isChecked());
 			}
 		});
 		// 设置取消按钮。。
@@ -156,8 +158,9 @@ public class ImageListActivity extends BaseActivity {
 	
 	/**
 	 * 筛选出指定星级的图片显示。
+	 * @param b 
 	 * */
-	private void showSpecifyLevel(String level){
+	private void showSpecifyLevel(String level, boolean b){
 		byte mLevel = -1;
 		/*
 		 * 设置六个集合。
@@ -206,9 +209,17 @@ public class ImageListActivity extends BaseActivity {
 		if(mLevel==-1){
 			listFiltrate.addAll(listDate);
 		}else{
-			for(int i=0;i<listDate.size();i++){
-				if(listDate.get(i).getStarLevel()==mLevel){
-					listFiltrate.add(listDate.get(i));
+			if(b){
+				for(int i=0;i<listDate.size();i++){
+					if(listDate.get(i).getStarLevel() >= mLevel){
+						listFiltrate.add(listDate.get(i));
+					}
+				}
+			}else {
+				for(int i=0;i<listDate.size();i++){
+					if(listDate.get(i).getStarLevel()==mLevel){
+						listFiltrate.add(listDate.get(i));
+					}
 				}
 			}
 			Log.d("mylog", "ImageListActivity - listFiltrate size="+listFiltrate.size());
