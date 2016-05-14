@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
+ * 杨永发
  * 本程序中所有Activity的基Activity。
  * 在本BaseActivity中主要定义了自定义的ActionBar。 
  * 且提供了修改ActionBar标题栏内容的方法。
