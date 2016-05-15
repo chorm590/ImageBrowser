@@ -12,6 +12,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.PopupMenu.OnDismissListener;
@@ -37,6 +38,7 @@ public class ImageListActivity extends BaseActivity {
 	private ArrayList<ImageEntity> listDate;
 	private ArrayList<ImageEntity> listFiltrate;
 	private boolean isMultiSelectMode;
+	private boolean isShareMode;
 	private PopupMenu popMenu;
 	private GridView gvList;
 	private String titleBase;
@@ -56,6 +58,13 @@ public class ImageListActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		
+		if(isShareMode){
+			Log.d("mylog", "share  true.");
+			isShareMode = false;
+			switchMultiSelect();
+		}
+		
 		/*
 		 * 在这里完成刷新星级数据的工作。
 		 * 当用户从图片列表Activity中跳转到图片详细内容
@@ -110,6 +119,9 @@ public class ImageListActivity extends BaseActivity {
 					case R.id.menuItemStar :{
 						classfyByStar();
 					}break;
+					case R.id.menuItemShare :{
+						shareMenu();
+					}break;
 				}
 				return false;
 			}
@@ -125,6 +137,57 @@ public class ImageListActivity extends BaseActivity {
 		});
 		popMenu.show();
 	}//接下来要做的就是根据CheckBox的选择情况来删除指定文件了。
+	
+	/**
+	 * 分享菜单的响应方法。
+	 * */
+	private void shareMenu(){
+		if(isMultiSelectMode){
+			Log.d("mylog", "ke yi share le.");
+			ArrayList<Uri> shareList = new ArrayList<>();
+			ArrayList<ImageEntity> temp = getSelectedItem();
+			if(temp.size() == 0){
+				Toast.makeText(this, "请至少选择一张图片", Toast.LENGTH_LONG).show();
+				return;
+			}else if(temp.size() > 9){
+				Toast.makeText(this, "至多只能分享九张图片", Toast.LENGTH_LONG).show();
+				return;
+			}else{
+				for(int i = 0;i<temp.size();i++){
+					shareList.add(Uri.parse("file:///"+temp.get(i).getPath()));
+				}
+				share(shareList);
+			}
+		}else{
+			// 当前处于普通浏览模式，先将模式切换为多选模式。
+			switchMultiSelect();
+		}
+	}// shareMenu  --  end.
+	
+	/**
+	 * 真正的分享功能。
+	 * */
+	private void share(ArrayList<Uri> shareList){
+		//遍历集合。
+		isShareMode = true;
+		Intent share = new Intent(Intent.ACTION_SEND_MULTIPLE);
+		share.setType("image/*");
+		share.putParcelableArrayListExtra(Intent.EXTRA_STREAM, shareList);
+		startActivity(Intent.createChooser(share, "分享到..."));
+	}
+	
+	private ArrayList<ImageEntity> getSelectedItem(){
+		ArrayList<ImageEntity> list = new ArrayList<>();
+		for(int i=0;i<listDate.size();i++){
+			Log.v("mylog", "pos:"+i+"  checkbox state:"+listDate.get(i).getIsSelected());
+			//如果当前图片的CheckBox被勾选，则记录下它。
+			if(listDate.get(i).getIsSelected()){
+				list.add(listDate.get(i));
+			}
+		}
+		
+		return list;
+	}
 	
 	/**
 	 * 弹出一个对话框，根据选择的星级级别筛选显示图片。

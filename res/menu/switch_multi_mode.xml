@@ -20,5 +20,11 @@
         android:orderInCategory="100"
         android:title="按星级筛选"
         android:showAsAction="never"/>
+    
+    <item 
+        android:id="@+id/menuItemShare"
+        android:orderInCategory="100"
+        android:title="分享"
+        android:showAsAction="never"/>
 
 </menu>

@@ -84,7 +84,7 @@ public class ImageListBaseAdapter extends BaseAdapter {
 			}
 			else{
 				holder.checkBox.setVisibility(View.INVISIBLE);
-				
+				getItem(position).setIsSelected(false);
 			}
 			//Mark that current position's view was loaded.
 			oneTimeSet.add(position);
