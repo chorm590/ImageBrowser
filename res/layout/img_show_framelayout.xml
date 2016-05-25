@@ -3,12 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     
-    <ImageView 
+     <!-- <ImageView 
         android:id="@+id/ivImgShowFL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="matrix"
-        android:contentDescription="@string/hello_world"/>
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/hello_world"/>  -->
+        
+     <com.yyf.imagebrowser.photoview.PhotoView
+        android:id="@+id/photoview1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        />
 
     <ProgressBar
         android:id="@+id/pbImgShowFL"

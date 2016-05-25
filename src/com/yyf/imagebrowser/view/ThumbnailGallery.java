@@ -33,7 +33,7 @@ public class ThumbnailGallery extends HorizontalScrollView {
 	private float currTouchPos;
 	public static final int THUMBNAIL_WIDTH_BASE = 70;
 	public static final int IV_PADDING_WIDTH = 5;
-	public static final int IV_DEFAULT_BG_COLOR = Color.GRAY;
+	public static final int IV_DEFAULT_BG_COLOR = Color.WHITE;
 	public static final int IV_SELECTED_BG_COLOR = Color.BLUE;
 	/**每张ImageView占的宽度。*/
 	private int imgWidth;

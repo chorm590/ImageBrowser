@@ -7,7 +7,7 @@
         android:id="@+id/menuItemMultiSelect"
         android:orderInCategory="100"
         android:title="批量选择"
-        app:showAsAction="never"/>
+        android:showAsAction="never"/>
     
     <item 
         android:id="@+id/menuItemDel"

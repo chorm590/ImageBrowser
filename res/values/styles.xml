@@ -4,5 +4,7 @@
     <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         
     </style>
+   <!--  <style name="AppThemeNoActionBar"
+        parent="@android:style/Theme.Light.NoTitleBar"></style> -->
     
 </resources>

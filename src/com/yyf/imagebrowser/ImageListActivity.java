@@ -14,9 +14,6 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.PopupMenu.OnDismissListener;
-import android.support.v7.widget.PopupMenu.OnMenuItemClickListener;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -26,6 +23,9 @@ import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.PopupMenu;
+import android.widget.PopupMenu.OnDismissListener;
+import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -168,7 +168,6 @@ public class ImageListActivity extends BaseActivity {
 	 * 真正的分享功能。
 	 * */
 	private void share(ArrayList<Uri> shareList){
-		//遍历集合。
 		isShareMode = true;
 		Intent share = new Intent(Intent.ACTION_SEND_MULTIPLE);
 		share.setType("image/*");

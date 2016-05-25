@@ -1,7 +1,8 @@
 package com.yyf.imagebrowser;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,13 +11,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
- * 杨永发
+ * 杨永发.......
  * 本程序中所有Activity的基Activity。
  * 在本BaseActivity中主要定义了自定义的ActionBar。 
  * 且提供了修改ActionBar标题栏内容的方法。
  * */
 @SuppressWarnings("deprecation")
-public class BaseActivity extends ActionBarActivity {
+public class BaseActivity extends FragmentActivity {
 
 	private TextView tvTitle;
 	protected ImageView ivBack, ivMenu;
