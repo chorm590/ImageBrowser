@@ -1,6 +1,5 @@
 package com.yyf.imagebrowser;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -16,7 +15,6 @@ import android.widget.TextView;
  * 在本BaseActivity中主要定义了自定义的ActionBar。 
  * 且提供了修改ActionBar标题栏内容的方法。
  * */
-@SuppressWarnings("deprecation")
 public class BaseActivity extends FragmentActivity {
 
 	private TextView tvTitle;

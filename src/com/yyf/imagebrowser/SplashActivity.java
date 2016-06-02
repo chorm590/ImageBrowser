@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-@SuppressWarnings("deprecation")
 public class SplashActivity extends Activity {
 
 	private Handler handler;

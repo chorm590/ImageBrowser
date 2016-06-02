@@ -1,8 +1,12 @@
 package com.yyf.imagebrowser;
 
+import java.util.ArrayList;
+import java.util.Map;
+
+import com.yyf.imagebrowser.entity.ImageEntity;
 import com.yyf.imagebrowser.fragment.FgmtSortByFolder;
 import com.yyf.imagebrowser.fragment.FgmtSortByStarDown;
-import com.yyf.imagebrowser.fragment.FgmtSortByStarUp;
+import com.yyf.imagebrowser.fragment.FgmtSortByStar;
 import com.yyf.imagebrowser.fragment.FgmtSortByTimeLine;
 import com.yyf.imagebrowser.tools.DataStorage;
 import com.yyf.imagebrowser.tools.ScanImage;
@@ -37,6 +41,7 @@ public class MainActivity extends BaseActivity {
 	public static float density;
 	public static float screenWidthHalf;
 	public static float screenHeight;
+	public static Map<String, ArrayList<ImageEntity>> map;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -82,16 +87,18 @@ public class MainActivity extends BaseActivity {
 		this.sortType = sortType;
 		switch(sortType){
 			case Constants.SORT_BY_FOLDER:{
-				fgmt = new FgmtSortByFolder(new ScanImage(getContentResolver()).getImageCollection());
+				map = new ScanImage(getContentResolver()).getImageCollection();
+				fgmt = new FgmtSortByFolder(map);
 			}break;
 			case Constants.SORT_BY_TIMELINE:{
-				fgmt = new FgmtSortByTimeLine();
+				fgmt = new FgmtSortByTimeLine(getContentResolver());
 			}break;
 			case Constants.SORT_BY_STARUP:{
-				fgmt = new FgmtSortByStarUp();
+				fgmt = new FgmtSortByStar(true);
 			}break;
 			case Constants.SORT_BY_STARTDOWN:{
-				fgmt = new FgmtSortByStarDown();
+//				fgmt = new FgmtSortByStarDown();
+				fgmt = new FgmtSortByStar(false);
 			}break;
 		}//  switch  --  end.
 		fgmtTran.replace(FL_ID, fgmt);
