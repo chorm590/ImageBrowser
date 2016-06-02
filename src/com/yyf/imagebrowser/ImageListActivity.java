@@ -338,6 +338,8 @@ public class ImageListActivity extends BaseActivity {
 		}//for  --  end.
 		ilbAdapter = new ImageListBaseAdapter(this, listDate);
 		gvList.setAdapter(ilbAdapter);
+		// 
+		switchMultiSelect();
 	}// delImage  --  end.
 	
 	/**

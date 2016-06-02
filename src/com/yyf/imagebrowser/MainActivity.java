@@ -5,7 +5,6 @@ import java.util.Map;
 
 import com.yyf.imagebrowser.entity.ImageEntity;
 import com.yyf.imagebrowser.fragment.FgmtSortByFolder;
-import com.yyf.imagebrowser.fragment.FgmtSortByStarDown;
 import com.yyf.imagebrowser.fragment.FgmtSortByStar;
 import com.yyf.imagebrowser.fragment.FgmtSortByTimeLine;
 import com.yyf.imagebrowser.tools.DataStorage;
@@ -16,6 +15,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -137,5 +137,15 @@ public class MainActivity extends BaseActivity {
 		//配置完毕后显示该菜单。
 		popMenu.show();
 	}// menuBtn method  --  end.
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if(keyCode == KeyEvent.KEYCODE_MENU){
+			menuBtn(ivMenu);
+			return true;
+		}
+		
+		return super.onKeyDown(keyCode, event);
+	}
 	
 }//  MainActivity class  --  end.
