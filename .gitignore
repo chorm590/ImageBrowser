@@ -1,0 +1,6 @@
+bin/
+.settings/
+.classpath
+.project
+lint.xml
+ic_launcher-web.png
